@@ -1,0 +1,37 @@
+name: Date Workflow  
+
+on:
+  push: 
+    branches: [main]   
+  pull_request: 
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  imprimir_info:  
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v4  
+
+      - name: Imprimir Mensaje Personalizado
+        run: |
+          echo "Hola, soy Santiago Gallego - ${{ github.actor }} y este es mi primer workflow!"  
+          echo "La fecha y hora actual es: $(date)"  
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12.9 
+
+      - name: Ejecutar Script Python
+        id: run_script
+        run: |  
+          mkdir build_output
+          python3.12 primer-entregable-cicd/script.py > build_output/output.txt
+      
+      - name: Subir Artefactos Construidos
+        uses: actions/upload-artifact@v4
+        with:
+          name: script_output
+          path: build_output
