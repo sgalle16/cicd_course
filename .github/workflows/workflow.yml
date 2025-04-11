@@ -1,10 +1,16 @@
-name: Date Workflow  
+name: Workshop 1 - Date Workflow  
 
 on:
   push: 
-    branches: [main]   
+    branches: [workshop1] 
+    paths: 
+      - 'workshop1/**'
+      - '.github/workflows/workflow.yml'  
   pull_request: 
-    branches: [main]
+    branches: [workshop1]
+    paths: 
+      - 'workshop1/**'
+      - '.github/workflows/workflow.yml' 
   workflow_dispatch:
 
 jobs:
@@ -28,10 +34,10 @@ jobs:
         id: run_script
         run: |  
           mkdir build_output
-          python3.12 primer-entregable-cicd/script.py > build_output/output.txt
+          python3.12 workshop1/script.py > build_output/output.txt
       
       - name: Subir Artefactos Construidos
         uses: actions/upload-artifact@v4
         with:
-          name: script_output
+          name: script_output_workshop1
           path: build_output
