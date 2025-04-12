@@ -8,6 +8,14 @@ from .calculadora import sumar, restar, multiplicar, dividir
 app = Flask(__name__)
 
 
+@app.route("/health")
+def health():
+    """
+    Health check endpoint to verify if the application is running.
+    """
+    return "OK", 200
+
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     """
