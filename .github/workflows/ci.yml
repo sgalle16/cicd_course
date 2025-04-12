@@ -95,7 +95,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./cicd-pipeline-app
           file: ./cicd-pipeline-app/Dockerfile
           push: true
           tags: |
