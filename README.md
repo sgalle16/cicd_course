@@ -1,4 +1,5 @@
 [![CI/CD Pipeline AWS ECS con CloudFormation](https://github.com/sgalle16/cicd_course/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/sgalle16/cicd_course/actions/workflows/ci-cd.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 # CI/CD Course
 ## CI/CD Pipeline for Python Flask Web Application (AWS ECS Deployment)
 
